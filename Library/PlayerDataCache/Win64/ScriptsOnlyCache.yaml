@@ -5,8 +5,10 @@ ScriptsOnlyBuild:
     - AnimalSpawner
     - AnimalStat
     - FoodController
+    - GameManager
     - PlayerMovement
     - PlayerThrow
+    - SceneChanger
     - ScoreManager
     Cinemachine.dll:
     - Cinemachine.CinemachineBasicMultiChannelPerlin
@@ -16,7 +18,6 @@ ScriptsOnlyBuild:
     - Cinemachine.CinemachineTransposer
     - Cinemachine.CinemachineVirtualCamera
     Unity.InputSystem.dll:
-    - UnityEngine.InputSystem.InputActionAsset
     - UnityEngine.InputSystem.InputSettings
     - UnityEngine.InputSystem.InputSystemObject
     - UnityEngine.InputSystem.RemoteInputPlayerConnection
@@ -36,10 +37,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -48,8 +47,10 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Image
   serializedClasses:
     Cinemachine:
     - Cinemachine.CinemachineBlendDefinition
@@ -76,15 +77,31 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Style
     - TMPro.VertexGradient
     UnityEngine.CoreModule:
+    - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
+    - UnityEngine.Events.PersistentListenerMode
     UnityEngine.TextCoreFontEngineModule:
     - UnityEngine.TextCore.FaceInfo
     - UnityEngine.TextCore.Glyph
     - UnityEngine.TextCore.GlyphMetrics
     - UnityEngine.TextCore.GlyphRect
     UnityEngine.UI:
+    - UnityEngine.UI.AnimationTriggers
+    - UnityEngine.UI.Button/ButtonClickedEvent
+    - UnityEngine.UI.ColorBlock
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
-  methodsToPreserve: []
+    - UnityEngine.UI.Navigation
+    - UnityEngine.UI.SpriteState
+  methodsToPreserve:
+  - assembly: Assembly-CSharp
+    fullTypeName: SceneChanger
+    methodName: ChangeScene
+  - assembly: Assembly-CSharp
+    fullTypeName: GameManager
+    methodName: BackToMainMenu
+  - assembly: Assembly-CSharp
+    fullTypeName: GameManager
+    methodName: ResumeGame
   sceneClasses:
     Assets/Scenes/Main.unity:
     - Class: 1
@@ -104,8 +121,6 @@ ScriptsOnlyBuild:
     - Class: 43
       Script: {instanceID: 0}
     - Class: 48
-      Script: {instanceID: 0}
-    - Class: 49
       Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
@@ -130,54 +145,133 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 2248}
+      Script: {instanceID: 1598}
     - Class: 114
-      Script: {instanceID: 2656}
+      Script: {instanceID: 2682}
     - Class: 114
-      Script: {instanceID: 2730}
+      Script: {instanceID: 2756}
     - Class: 114
-      Script: {instanceID: 2800}
+      Script: {instanceID: 2826}
     - Class: 114
-      Script: {instanceID: 2948}
+      Script: {instanceID: 2974}
     - Class: 114
-      Script: {instanceID: 4436}
+      Script: {instanceID: 3298}
     - Class: 114
-      Script: {instanceID: 4726}
+      Script: {instanceID: 5154}
     - Class: 114
-      Script: {instanceID: 5128}
+      Script: {instanceID: 5556}
     - Class: 114
-      Script: {instanceID: 5532}
+      Script: {instanceID: 6144}
     - Class: 114
-      Script: {instanceID: 6120}
+      Script: {instanceID: 6176}
     - Class: 114
-      Script: {instanceID: 6152}
+      Script: {instanceID: 6368}
     - Class: 114
-      Script: {instanceID: 6344}
+      Script: {instanceID: 6724}
     - Class: 114
-      Script: {instanceID: 6700}
+      Script: {instanceID: 6796}
     - Class: 114
-      Script: {instanceID: 7470}
+      Script: {instanceID: 7496}
     - Class: 114
-      Script: {instanceID: 8474}
+      Script: {instanceID: 8500}
     - Class: 114
-      Script: {instanceID: 24160}
+      Script: {instanceID: 8820}
     - Class: 114
-      Script: {instanceID: 30204}
+      Script: {instanceID: 8828}
     - Class: 114
-      Script: {instanceID: 30558}
+      Script: {instanceID: 8836}
     - Class: 114
-      Script: {instanceID: 32000}
+      Script: {instanceID: 8840}
     - Class: 114
-      Script: {instanceID: 41588}
+      Script: {instanceID: 8844}
     - Class: 114
-      Script: {instanceID: 47500}
+      Script: {instanceID: 8848}
     - Class: 114
-      Script: {instanceID: 51726}
+      Script: {instanceID: 8852}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
     - Class: 136
+      Script: {instanceID: 0}
+    - Class: 137
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/MainMenu.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1598}
+    - Class: 114
+      Script: {instanceID: 2274}
+    - Class: 114
+      Script: {instanceID: 2756}
+    - Class: 114
+      Script: {instanceID: 2974}
+    - Class: 114
+      Script: {instanceID: 3298}
+    - Class: 114
+      Script: {instanceID: 4462}
+    - Class: 114
+      Script: {instanceID: 4752}
+    - Class: 114
+      Script: {instanceID: 5556}
+    - Class: 114
+      Script: {instanceID: 6176}
+    - Class: 114
+      Script: {instanceID: 6368}
+    - Class: 114
+      Script: {instanceID: 6724}
+    - Class: 114
+      Script: {instanceID: 8832}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
       Script: {instanceID: 0}
     - Class: 137
       Script: {instanceID: 0}
@@ -1150,6 +1244,12 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
+      Hash: 68632cf7decac4e3b29af1c1fa0bbecf
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: GameManager
+  - hash:
+      serializedVersion: 2
       Hash: bd3b93eecbd0fe18d9938dc47570fa20
     assemblyName: Cinemachine
     namespaceName: Cinemachine
@@ -1492,16 +1592,34 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: c13adf70ec9777b05527d1b32edc4c16
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: PlayerMovement
-  - hash:
-      serializedVersion: 2
       Hash: f6c76fb8eb2a0c7d0a9cebc9ed2535a1
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: PlayerThrow
+  - hash:
+      serializedVersion: 2
+      Hash: fca34b7e672920adf74e05a1f748b880
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: AnimalMovement
+  - hash:
+      serializedVersion: 2
+      Hash: 1383194cbff4f79ea9f30df83e226664
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SceneChanger
+  - hash:
+      serializedVersion: 2
+      Hash: e1706d685737a774fccee46ec2a6c5c0
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: ScoreManager
+  - hash:
+      serializedVersion: 2
+      Hash: c13adf70ec9777b05527d1b32edc4c16
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: PlayerMovement
   - hash:
       serializedVersion: 2
       Hash: e858cdf1c485efc45611de3a8e005281
@@ -1516,29 +1634,13 @@ ScriptsOnlyBuild:
     className: AnimalSpawner
   - hash:
       serializedVersion: 2
-      Hash: fca34b7e672920adf74e05a1f748b880
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: AnimalMovement
-  - hash:
-      serializedVersion: 2
       Hash: be7728cb11e27a00a0ad37a96c076c42
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: AnimalStat
-  - hash:
-      serializedVersion: 2
-      Hash: e1706d685737a774fccee46ec2a6c5c0
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: ScoreManager
-  - hash:
-      serializedVersion: 2
-      Hash: 1383194cbff4f79ea9f30df83e226664
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: SceneChanger
   platform: 19
   scenePathNames:
+  - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/Main.unity
-  playerPath: D:/agate/uji kompetensi/Build/uji kompetensi.exe
+  playerPath: D:/agate/uji kompetensi/RosalenaBrigitaLimbong-ujikom/FixBuild/uji
+    kompetensi.exe
