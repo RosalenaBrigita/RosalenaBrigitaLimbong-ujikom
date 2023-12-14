@@ -362,6 +362,7 @@
 "Assets/Scripts/AnimalSpawner.cs"
 "Assets/Scripts/AnimalStat.cs"
 "Assets/Scripts/FoodController.cs"
+"Assets/Scripts/GameManager.cs"
 "Assets/Scripts/PlayerMovement.cs"
 "Assets/Scripts/PlayerThrow.cs"
 "Assets/Scripts/SceneManager.cs"

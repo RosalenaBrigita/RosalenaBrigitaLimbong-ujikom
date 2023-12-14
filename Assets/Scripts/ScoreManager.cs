@@ -1,35 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro; // Import namespace TextMeshPro
+using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
     private int score = 0;
-    public TextMeshProUGUI scoreText; // Menggunakan TextMeshProUGUI
+    public TextMeshProUGUI scoreText; 
 
     void Start()
     {
         score = 0;
-        UpdateScoreText(); // Panggil fungsi ini untuk memperbarui teks UI pada awal
-    }
-
-    void Update()
-    {
-        // Update logika lainnya sesuai kebutuhan
+        UpdateScoreText();
     }
 
     public void AddScore(int amount)
     {
         score += amount;
-        UpdateScoreText(); // Panggil fungsi ini setiap kali skor berubah
+        UpdateScoreText(); 
     }
 
     void UpdateScoreText()
     {
         if (scoreText != null)
         {
-            scoreText.text = "Score: " + score.ToString(); // Update teks pada UI Text
+            scoreText.text = "Score: " + score.ToString(); 
         }
     }
 }
